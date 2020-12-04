@@ -1,6 +1,6 @@
-# Magic_Box
+# Magic Box
 
-A new Flutter project.
+A new Flutter Animation.
 
 ## Getting Started
 
