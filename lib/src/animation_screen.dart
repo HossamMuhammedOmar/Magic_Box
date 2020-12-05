@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:Magic_Box/src/images.dart';
 import 'package:flutter/material.dart';
 
 class AnimationScreen extends StatefulWidget {
@@ -47,15 +50,6 @@ class AnimationScreenState extends State<AnimationScreen>
     );
   }
 
-  // Helper Method retrun widget
-  Widget buildImages() {
-    return Image.asset(
-      'lib/src/images/2.png',
-      width: 200.0,
-      height: 200.0,
-    );
-  }
-
   // Helper Method for Animation
   Widget buildAnimation() {
     return AnimatedBuilder(
@@ -68,7 +62,7 @@ class AnimationScreenState extends State<AnimationScreen>
           child: child,
         );
       },
-      child: buildImages(),
+      child: Images(imageNumber),
     );
   }
 
@@ -77,6 +71,9 @@ class AnimationScreenState extends State<AnimationScreen>
       magicController.reverse();
     } else if (magicAnimation.status == AnimationStatus.dismissed) {
       magicController.forward();
+      setState(() {
+        imageNumber = Random().nextInt(2) + 1;
+      });
     }
   }
 }
